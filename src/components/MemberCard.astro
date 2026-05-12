@@ -1,0 +1,68 @@
+---
+import Avatar from './Avatar.astro';
+
+interface Props {
+  name: string;
+  trait: string;
+  bio: string;
+  fav: string;
+  classe: string;
+  style:
+    | 'bob-blonde'
+    | 'long-brown'
+    | 'pigtails-black'
+    | 'bun-red'
+    | 'curly-pink'
+    | 'short-brown'
+    | 'long-blonde'
+    | 'pigtails-brown'
+    | 'bob-black'
+    | 'curly-brown'
+    | 'bun-blonde'
+    | 'long-black';
+  skin: string;
+  bg: string;
+}
+
+const { name, trait, bio, fav, classe, style, skin, bg } = Astro.props;
+---
+
+<article
+  class="rounded-[20px] p-3.5 transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_14px_24px_rgba(74,63,85,0.1)]"
+  style={`background:${bg}`}
+>
+  <div
+    class="w-[88px] h-[88px] mx-auto mb-2.5 rounded-full overflow-hidden bg-ivory shadow-[0_6px_14px_rgba(74,63,85,0.08)]"
+  >
+    <Avatar style={style} skin={skin} bg={bg} />
+  </div>
+  <div class="text-center">
+    <h2 class="text-[1.1rem] font-display font-black mb-0.5 leading-tight">{name}</h2>
+    <p
+      class="italic text-pink-deep font-display font-bold text-[0.85rem] mb-2"
+    >
+      {trait}
+    </p>
+    <p class="text-plum-soft text-[0.78rem] mb-3 min-h-[5.5em] leading-snug">{bio}</p>
+    <dl
+      class="grid gap-1.5 text-left pt-2.5 border-t border-dashed border-plum/20"
+    >
+      <div>
+        <dt
+          class="text-[0.6rem] font-bold text-plum-soft uppercase tracking-[0.08em] mb-0.5"
+        >
+          Peluche préférée
+        </dt>
+        <dd class="text-[0.78rem] text-plum font-semibold leading-tight">{fav}</dd>
+      </div>
+      <div>
+        <dt
+          class="text-[0.6rem] font-bold text-plum-soft uppercase tracking-[0.08em] mb-0.5"
+        >
+          Classe
+        </dt>
+        <dd class="text-[0.78rem] text-plum font-semibold">{classe}</dd>
+      </div>
+    </dl>
+  </div>
+</article>

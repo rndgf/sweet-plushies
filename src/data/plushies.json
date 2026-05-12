@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Mochi le Lapin",
+    "price": "8€",
+    "maker": "Madeleine",
+    "variant": "bunny",
+    "color": "#FFD6E0",
+    "accent": "#FFB3C7",
+    "bg": "#FFF0F4"
+  },
+  {
+    "name": "Praline l'Ourson",
+    "price": "10€",
+    "maker": "Violette",
+    "variant": "bear",
+    "color": "#E8D5B7",
+    "accent": "#D4BFA0",
+    "bg": "#FAF3E7"
+  },
+  {
+    "name": "Miso le Chat",
+    "price": "9€",
+    "maker": "Charlotte",
+    "variant": "cat",
+    "color": "#C8E6E0",
+    "accent": "#A8D4CB",
+    "bg": "#EAF6F3"
+  },
+  {
+    "name": "Clémentine le Renard",
+    "price": "10€",
+    "maker": "Violette",
+    "variant": "fox",
+    "color": "#FFC9A3",
+    "accent": "#FFA77A",
+    "bg": "#FFEEDD"
+  },
+  {
+    "name": "Bao le Panda",
+    "price": "12€",
+    "maker": "Salomé",
+    "variant": "panda",
+    "color": "#FFFDFB",
+    "accent": "#FFD6E0",
+    "bg": "#F4F2F0"
+  },
+  {
+    "name": "Étoile la Licorne",
+    "price": "12€",
+    "maker": "Salomé",
+    "variant": "unicorn",
+    "color": "#D4C5F9",
+    "accent": "#FFD6E0",
+    "bg": "#F2EDFC"
+  },
+  {
+    "name": "Bulle la Grenouille",
+    "price": "9€",
+    "maker": "Charlotte",
+    "variant": "frog",
+    "color": "#A8D8B8",
+    "accent": "#7EC598",
+    "bg": "#E8F4EC"
+  },
+  {
+    "name": "Nuage le Mouton",
+    "price": "11€",
+    "maker": "Madeleine",
+    "variant": "sheep",
+    "color": "#FFFDFB",
+    "accent": "#E8B58A",
+    "bg": "#F7F3EE"
+  }
+]

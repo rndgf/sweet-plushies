@@ -1,0 +1,20 @@
+---
+import Plush from './Plush.astro';
+import type { Plushie } from '../data/types';
+
+const { name, price, maker, variant, color, accent, bg } = Astro.props as Plushie;
+---
+
+<article
+  class="rounded-[22px] p-4 pb-5 transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_16px_28px_rgba(74,63,85,0.1)]"
+  style={`background:${bg}`}
+>
+  <div class="aspect-square grid place-items-center p-1.5">
+    <Plush variant={variant} color={color} accent={accent} />
+  </div>
+  <div class="text-center mt-1.5">
+    <h3 class="text-[0.98rem] sm:text-[1.05rem] font-display font-bold mb-0.5 min-h-[2.5em] leading-tight">{name}</h3>
+    <p class="text-plum-soft text-[0.78rem] italic mb-1.5">crochetée par {maker}</p>
+    <p class="font-display font-black text-[1.05rem] sm:text-[1.1rem] text-plum">{price}</p>
+  </div>
+</article>

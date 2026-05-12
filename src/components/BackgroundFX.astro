@@ -1,0 +1,77 @@
+---
+const sparkles = [
+  { char: '✦', x: 6,  y: 8,  size: 34, delay: 0,    dur: 22, color: '#FF8AAE' },
+  { char: '✧', x: 86, y: 14, size: 28, delay: 3,    dur: 28, color: '#B79BF0' },
+  { char: '✦', x: 18, y: 78, size: 38, delay: 6,    dur: 24, color: '#FF8AAE' },
+  { char: '❀', x: 92, y: 65, size: 30, delay: 2,    dur: 26, color: '#FF8AAE' },
+  { char: '✧', x: 50, y: 35, size: 24, delay: 8,    dur: 30, color: '#B79BF0' },
+  { char: '✦', x: 10, y: 45, size: 32, delay: 1,    dur: 18, color: '#7BBDB0' },
+  { char: '✦', x: 70, y: 88, size: 28, delay: 5,    dur: 25, color: '#FF8AAE' },
+  { char: '♡', x: 30, y: 20, size: 26, delay: 9,    dur: 27, color: '#FF8AAE' },
+  { char: '✧', x: 80, y: 40, size: 36, delay: 4,    dur: 23, color: '#B79BF0' },
+  { char: '❀', x: 12, y: 92, size: 32, delay: 7,    dur: 29, color: '#FF8AAE' },
+  { char: '✦', x: 95, y: 90, size: 24, delay: 10,   dur: 21, color: '#7BBDB0' },
+  { char: '✦', x: 40, y: 65, size: 28, delay: 11,   dur: 19, color: '#FF8AAE' },
+  { char: '✧', x: 60, y: 10, size: 26, delay: 2.5,  dur: 32, color: '#B79BF0' },
+  { char: '♡', x: 4,  y: 30, size: 24, delay: 6.5,  dur: 26, color: '#FF8AAE' },
+  { char: '✦', x: 65, y: 55, size: 30, delay: 12,   dur: 28, color: '#FF8AAE' },
+  { char: '❀', x: 22, y: 58, size: 26, delay: 4.5,  dur: 24, color: '#B79BF0' },
+];
+---
+
+<div class="bg-fx fixed inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+  {
+    sparkles.map((s) => (
+      <span
+        class="sparkle"
+        style={`top:${s.y}%;left:${s.x}%;font-size:${s.size}px;color:${s.color};animation-duration:${s.dur}s;animation-delay:-${s.delay}s;`}
+      >
+        {s.char}
+      </span>
+    ))
+  }
+</div>
+
+<style>
+  .bg-fx {
+    z-index: 0;
+  }
+  .sparkle {
+    position: absolute;
+    display: block;
+    line-height: 1;
+    user-select: none;
+    will-change: transform, opacity;
+    animation: float-fx ease-in-out infinite;
+  }
+
+  @keyframes float-fx {
+    0% {
+      transform: translate(0, 0) rotate(0deg) scale(0.85);
+      opacity: 0.45;
+    }
+    25% {
+      transform: translate(12px, -28px) rotate(90deg) scale(1.05);
+      opacity: 0.9;
+    }
+    50% {
+      transform: translate(-8px, -52px) rotate(180deg) scale(1.15);
+      opacity: 0.75;
+    }
+    75% {
+      transform: translate(14px, -28px) rotate(270deg) scale(1.05);
+      opacity: 0.95;
+    }
+    100% {
+      transform: translate(0, 0) rotate(360deg) scale(0.85);
+      opacity: 0.45;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sparkle {
+      animation: none;
+      opacity: 0.7;
+    }
+  }
+</style>

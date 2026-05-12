@@ -1,0 +1,24 @@
+---
+interface Blob {
+  color: string;
+  size: string;
+  position: string;
+}
+interface Props {
+  blobs: Blob[];
+}
+const { blobs } = Astro.props;
+---
+
+{
+  blobs.map((b) => (
+    <div
+      class:list={[
+        'absolute rounded-full blur-[60px] opacity-55 pointer-events-none z-0',
+        b.color,
+        b.size,
+        b.position,
+      ]}
+    />
+  ))
+}

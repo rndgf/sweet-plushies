@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-peach: #fff6f2;
+  --color-peach-warm: #fdebe4;
+  --color-pink: #ffd6e0;
+  --color-pink-deep: #ffb3c7;
+  --color-mint: #c8e6e0;
+  --color-cream: #ffe9b0;
+  --color-lavender: #d4c5f9;
+  --color-plum: #4a3f55;
+  --color-plum-soft: #7a6f85;
+  --color-ivory: #fffdfb;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Cause", system-ui, -apple-system, sans-serif;
+
+  --radius-card: 28px;
+  --radius-card-lg: 32px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background: var(--color-peach);
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-plum);
+    background: transparent;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  img,
+  svg {
+    max-width: 100%;
+    display: block;
+  }
+
+  ::selection {
+    background: var(--color-pink-deep);
+    color: var(--color-plum);
+  }
+}
+
+@utility hl {
+  background: linear-gradient(
+    120deg,
+    transparent 0 12%,
+    var(--color-pink) 12% 88%,
+    transparent 88%
+  );
+  padding: 0 0.2em;
+  font-style: italic;
+}
+
+@utility display-h1 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-variation-settings: "opsz" 120, "SOFT" 100;
+}

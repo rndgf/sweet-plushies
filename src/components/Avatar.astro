@@ -1,0 +1,175 @@
+---
+interface Props {
+  style: 'bob-blonde' | 'long-brown' | 'pigtails-black' | 'bun-red' | 'curly-pink' | 'short-brown' | 'long-blonde' | 'pigtails-brown' | 'bob-black' | 'curly-brown' | 'bun-blonde' | 'long-black';
+  skin?: string;
+  bg: string;
+}
+
+const { style, skin = '#FBD7B5', bg } = Astro.props;
+
+const hairColors: Record<string, string> = {
+  blonde: '#E8C77E',
+  'blonde-light': '#F2D89A',
+  brown: '#7A4A2B',
+  'brown-warm': '#8B5A3C',
+  black: '#2C2433',
+  red: '#C66A3F',
+  pink: '#FFB3C7',
+};
+
+const variants: Record<string, { hairBack: string; hairFront: string; hairColor: string; accessory?: 'bow' | 'glasses' | 'headband' | 'clip'; accessoryColor?: string }> = {
+  'bob-blonde': {
+    hairColor: hairColors.blonde,
+    hairBack: 'M30 55 Q30 28 75 25 Q120 28 120 55 L120 80 L30 80 Z',
+    hairFront: 'M40 55 Q50 38 75 35 Q100 38 110 55 Q105 50 90 50 Q85 45 75 45 Q65 45 60 50 Q45 50 40 55 Z',
+    accessory: 'clip',
+    accessoryColor: '#FFB3C7',
+  },
+  'long-brown': {
+    hairColor: hairColors.brown,
+    hairBack: 'M28 50 Q28 25 75 22 Q122 25 122 50 L125 130 L115 130 L115 70 L35 70 L35 130 L25 130 Z',
+    hairFront: 'M38 50 Q45 32 60 30 L65 50 Q55 48 38 50 Z M88 50 Q105 32 112 50 Q95 48 88 50 Z',
+    accessory: 'headband',
+    accessoryColor: '#D4C5F9',
+  },
+  'pigtails-black': {
+    hairColor: hairColors.black,
+    hairBack: 'M30 55 Q30 25 75 22 Q120 25 120 55 L120 75 L30 75 Z M15 60 Q5 80 12 105 Q22 102 25 80 Z M135 60 Q145 80 138 105 Q128 102 125 80 Z',
+    hairFront: 'M40 50 Q55 32 75 30 Q95 32 110 50 Q100 45 85 45 Q80 42 75 42 Q70 42 65 45 Q50 45 40 50 Z',
+    accessory: 'bow',
+    accessoryColor: '#FFD6E0',
+  },
+  'bun-red': {
+    hairColor: hairColors.red,
+    hairBack: 'M30 55 Q30 28 75 25 Q120 28 120 55 L120 75 L30 75 Z',
+    hairFront: 'M40 55 Q50 35 75 32 Q100 35 110 55 Q102 45 90 48 Q80 42 75 42 Q70 42 60 48 Q48 45 40 55 Z',
+    accessory: 'headband',
+    accessoryColor: '#FFE9B0',
+  },
+  'curly-pink': {
+    hairColor: hairColors.pink,
+    hairBack: 'M25 55 Q22 25 75 20 Q128 25 125 55 L125 80 Q120 90 110 85 Q115 78 110 75 Q100 80 95 75 Q90 80 80 75 Q75 80 70 75 Q60 80 55 75 Q45 80 40 75 Q35 78 40 85 Q30 90 25 80 Z',
+    hairFront: 'M38 52 Q45 35 60 35 Q55 45 50 50 Q42 48 38 52 Z M90 50 Q105 35 112 52 Q108 48 100 50 Q95 45 90 50 Z',
+  },
+  'short-brown': {
+    hairColor: hairColors['brown-warm'],
+    hairBack: 'M32 55 Q32 30 75 28 Q118 30 118 55 L118 72 L32 72 Z',
+    hairFront: 'M40 55 Q50 35 75 33 Q100 35 110 55 Q105 48 95 50 Q90 45 80 48 Q75 45 70 48 Q60 45 55 50 Q45 48 40 55 Z',
+  },
+  'long-blonde': {
+    hairColor: hairColors['blonde-light'],
+    hairBack: 'M28 50 Q28 25 75 22 Q122 25 122 50 L120 135 L110 135 L112 75 L38 75 L40 135 L30 135 Z',
+    hairFront: 'M38 50 Q50 32 75 30 Q100 32 112 50 Q105 45 90 48 Q80 42 75 42 Q70 42 60 48 Q45 45 38 50 Z',
+    accessory: 'clip',
+    accessoryColor: '#C8E6E0',
+  },
+  'pigtails-brown': {
+    hairColor: hairColors.brown,
+    hairBack: 'M30 55 Q30 25 75 22 Q120 25 120 55 L120 75 L30 75 Z M18 60 Q8 85 16 110 Q26 105 28 82 Z M132 60 Q142 85 134 110 Q124 105 122 82 Z',
+    hairFront: 'M40 50 Q55 32 75 30 Q95 32 110 50 Q100 45 85 45 Q80 42 75 42 Q70 42 65 45 Q50 45 40 50 Z',
+    accessory: 'bow',
+    accessoryColor: '#D4C5F9',
+  },
+  'bob-black': {
+    hairColor: hairColors.black,
+    hairBack: 'M30 55 Q30 28 75 25 Q120 28 120 55 L120 82 L30 82 Z',
+    hairFront: 'M40 55 Q50 38 75 35 Q100 38 110 55 Q100 50 88 50 Q82 45 75 45 Q68 45 62 50 Q50 50 40 55 Z',
+    accessory: 'glasses',
+  },
+  'curly-brown': {
+    hairColor: hairColors.brown,
+    hairBack: 'M25 55 Q22 25 75 20 Q128 25 125 55 L125 80 Q120 90 110 85 Q115 78 110 75 Q100 80 95 75 Q90 80 80 75 Q75 80 70 75 Q60 80 55 75 Q45 80 40 75 Q35 78 40 85 Q30 90 25 80 Z',
+    hairFront: 'M38 52 Q45 35 60 35 Q55 45 50 50 Q42 48 38 52 Z M90 50 Q105 35 112 52 Q108 48 100 50 Q95 45 90 50 Z',
+    accessory: 'glasses',
+  },
+  'bun-blonde': {
+    hairColor: hairColors.blonde,
+    hairBack: 'M30 55 Q30 28 75 25 Q120 28 120 55 L120 75 L30 75 Z M75 12 a10 10 0 1 1 0 20 a10 10 0 1 1 0 -20',
+    hairFront: 'M40 55 Q50 35 75 32 Q100 35 110 55 Q102 45 90 48 Q80 42 75 42 Q70 42 60 48 Q48 45 40 55 Z',
+    accessory: 'headband',
+    accessoryColor: '#FFB3C7',
+  },
+  'long-black': {
+    hairColor: hairColors.black,
+    hairBack: 'M28 50 Q28 25 75 22 Q122 25 122 50 L120 135 L110 135 L112 75 L38 75 L40 135 L30 135 Z',
+    hairFront: 'M38 50 Q50 32 75 30 Q100 32 112 50 Q105 45 90 48 Q80 42 75 42 Q70 42 60 48 Q45 45 38 50 Z',
+  },
+};
+
+const v = variants[style];
+---
+
+<svg viewBox="0 0 150 150" class="avatar" aria-hidden="true">
+  <circle cx="75" cy="75" r="75" fill={bg} />
+
+  {/* hair back */}
+  <path d={v.hairBack} fill={v.hairColor} />
+
+  {/* neck */}
+  <rect x="65" y="92" width="20" height="20" rx="6" fill={skin} />
+  <path d="M55 115 Q75 108 95 115 L95 150 L55 150 Z" fill="#fff" opacity="0.0" />
+
+  {/* face */}
+  <ellipse cx="75" cy="75" rx="32" ry="36" fill={skin} />
+
+  {/* ears */}
+  <ellipse cx="44" cy="78" rx="5" ry="7" fill={skin} />
+  <ellipse cx="106" cy="78" rx="5" ry="7" fill={skin} />
+
+  {/* hair front */}
+  <path d={v.hairFront} fill={v.hairColor} />
+
+  {/* cheeks */}
+  <circle cx="58" cy="84" r="4" fill="#FFB3C7" opacity="0.55" />
+  <circle cx="92" cy="84" r="4" fill="#FFB3C7" opacity="0.55" />
+
+  {/* eyes */}
+  <ellipse cx="65" cy="75" rx="3" ry="4" fill="#2C2433" />
+  <ellipse cx="85" cy="75" rx="3" ry="4" fill="#2C2433" />
+  <circle cx="66" cy="73.5" r="1" fill="#fff" />
+  <circle cx="86" cy="73.5" r="1" fill="#fff" />
+
+  {/* mouth */}
+  <path d="M68 89 Q75 94 82 89" stroke="#2C2433" stroke-width="1.8" fill="none" stroke-linecap="round" />
+
+  {/* accessory */}
+  {
+    v.accessory === 'bow' && (
+      <g transform="translate(105 38) rotate(15)">
+        <path d="M0 0 L-10 -6 L-10 6 Z" fill={v.accessoryColor} />
+        <path d="M0 0 L10 -6 L10 6 Z" fill={v.accessoryColor} />
+        <circle cx="0" cy="0" r="3" fill={v.accessoryColor} />
+      </g>
+    )
+  }
+  {
+    v.accessory === 'glasses' && (
+      <g stroke="#2C2433" stroke-width="1.8" fill="none">
+        <circle cx="65" cy="75" r="8" />
+        <circle cx="85" cy="75" r="8" />
+        <line x1="73" y1="75" x2="77" y2="75" />
+      </g>
+    )
+  }
+  {
+    v.accessory === 'headband' && (
+      <path d="M42 52 Q75 35 108 52" stroke={v.accessoryColor} stroke-width="6" fill="none" stroke-linecap="round" />
+    )
+  }
+  {
+    v.accessory === 'clip' && (
+      <g transform="translate(108 55) rotate(-20)">
+        <rect x="-8" y="-3" width="16" height="6" rx="3" fill={v.accessoryColor} />
+      </g>
+    )
+  }
+</svg>
+
+<style>
+  .avatar {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 50%;
+  }
+</style>

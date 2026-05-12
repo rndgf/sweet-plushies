@@ -1,0 +1,183 @@
+---
+interface Props {
+  variant: 'bunny' | 'bear' | 'cat' | 'fox' | 'panda' | 'unicorn' | 'frog' | 'sheep';
+  color: string;
+  accent?: string;
+}
+
+const { variant, color, accent = '#FFB3C7' } = Astro.props;
+---
+
+<svg viewBox="0 0 200 200" class="plush" aria-hidden="true">
+  {
+    variant === 'bunny' && (
+      <>
+        <ellipse cx="75" cy="55" rx="14" ry="36" fill={color} />
+        <ellipse cx="125" cy="55" rx="14" ry="36" fill={color} />
+        <ellipse cx="75" cy="55" rx="6" ry="22" fill={accent} opacity="0.5" />
+        <ellipse cx="125" cy="55" rx="6" ry="22" fill={accent} opacity="0.5" />
+        <circle cx="100" cy="115" r="60" fill={color} />
+        <circle cx="82" cy="108" r="5" fill="#4A3F55" />
+        <circle cx="118" cy="108" r="5" fill="#4A3F55" />
+        <circle cx="83.5" cy="106.5" r="1.5" fill="#fff" />
+        <circle cx="119.5" cy="106.5" r="1.5" fill="#fff" />
+        <path d="M95 125 Q100 130 105 125" stroke="#4A3F55" stroke-width="2.5" fill="none" stroke-linecap="round" />
+        <circle cx="72" cy="125" r="7" fill={accent} opacity="0.7" />
+        <circle cx="128" cy="125" r="7" fill={accent} opacity="0.7" />
+      </>
+    )
+  }
+  {
+    variant === 'bear' && (
+      <>
+        <circle cx="62" cy="62" r="18" fill={color} />
+        <circle cx="138" cy="62" r="18" fill={color} />
+        <circle cx="62" cy="62" r="9" fill={accent} opacity="0.5" />
+        <circle cx="138" cy="62" r="9" fill={accent} opacity="0.5" />
+        <circle cx="100" cy="115" r="65" fill={color} />
+        <circle cx="82" cy="108" r="5" fill="#4A3F55" />
+        <circle cx="118" cy="108" r="5" fill="#4A3F55" />
+        <circle cx="83.5" cy="106.5" r="1.5" fill="#fff" />
+        <circle cx="119.5" cy="106.5" r="1.5" fill="#fff" />
+        <ellipse cx="100" cy="125" rx="9" ry="7" fill={accent} opacity="0.6" />
+        <ellipse cx="100" cy="122" rx="3" ry="2" fill="#4A3F55" />
+        <path d="M93 130 Q100 137 107 130" stroke="#4A3F55" stroke-width="2.5" fill="none" stroke-linecap="round" />
+      </>
+    )
+  }
+  {
+    variant === 'cat' && (
+      <>
+        <polygon points="55,75 75,30 95,72" fill={color} />
+        <polygon points="105,72 125,30 145,75" fill={color} />
+        <polygon points="65,68 78,45 88,68" fill={accent} opacity="0.5" />
+        <polygon points="112,68 122,45 135,68" fill={accent} opacity="0.5" />
+        <circle cx="100" cy="115" r="60" fill={color} />
+        <circle cx="82" cy="108" r="5" fill="#4A3F55" />
+        <circle cx="118" cy="108" r="5" fill="#4A3F55" />
+        <circle cx="83.5" cy="106.5" r="1.5" fill="#fff" />
+        <circle cx="119.5" cy="106.5" r="1.5" fill="#fff" />
+        <path d="M97 122 L100 126 L103 122" stroke="#4A3F55" stroke-width="2" fill={accent} stroke-linejoin="round" />
+        <path d="M93 132 Q100 138 107 132" stroke="#4A3F55" stroke-width="2.5" fill="none" stroke-linecap="round" />
+        <line x1="70" y1="118" x2="55" y2="115" stroke="#4A3F55" stroke-width="1.5" stroke-linecap="round" />
+        <line x1="70" y1="124" x2="55" y2="125" stroke="#4A3F55" stroke-width="1.5" stroke-linecap="round" />
+        <line x1="130" y1="118" x2="145" y2="115" stroke="#4A3F55" stroke-width="1.5" stroke-linecap="round" />
+        <line x1="130" y1="124" x2="145" y2="125" stroke="#4A3F55" stroke-width="1.5" stroke-linecap="round" />
+      </>
+    )
+  }
+  {
+    variant === 'fox' && (
+      <>
+        <polygon points="50,80 72,35 92,75" fill={color} />
+        <polygon points="108,75 128,35 150,80" fill={color} />
+        <polygon points="60,72 75,50 85,72" fill="#FFFDFB" />
+        <polygon points="115,72 125,50 140,72" fill="#FFFDFB" />
+        <circle cx="100" cy="115" r="60" fill={color} />
+        <path d="M70 130 Q100 165 130 130 Q120 145 100 148 Q80 145 70 130" fill="#FFFDFB" />
+        <circle cx="82" cy="108" r="5" fill="#4A3F55" />
+        <circle cx="118" cy="108" r="5" fill="#4A3F55" />
+        <circle cx="83.5" cy="106.5" r="1.5" fill="#fff" />
+        <circle cx="119.5" cy="106.5" r="1.5" fill="#fff" />
+        <ellipse cx="100" cy="128" rx="4" ry="3" fill="#4A3F55" />
+        <path d="M95 138 Q100 144 105 138" stroke="#4A3F55" stroke-width="2.5" fill="none" stroke-linecap="round" />
+      </>
+    )
+  }
+  {
+    variant === 'panda' && (
+      <>
+        <circle cx="62" cy="60" r="18" fill="#4A3F55" />
+        <circle cx="138" cy="60" r="18" fill="#4A3F55" />
+        <circle cx="100" cy="115" r="65" fill={color} />
+        <ellipse cx="82" cy="110" rx="12" ry="14" fill="#4A3F55" transform="rotate(-15 82 110)" />
+        <ellipse cx="118" cy="110" rx="12" ry="14" fill="#4A3F55" transform="rotate(15 118 110)" />
+        <circle cx="82" cy="110" r="4" fill="#fff" />
+        <circle cx="118" cy="110" r="4" fill="#fff" />
+        <circle cx="82" cy="110" r="2" fill="#4A3F55" />
+        <circle cx="118" cy="110" r="2" fill="#4A3F55" />
+        <ellipse cx="100" cy="128" rx="5" ry="4" fill="#4A3F55" />
+        <path d="M93 138 Q100 144 107 138" stroke="#4A3F55" stroke-width="2.5" fill="none" stroke-linecap="round" />
+        <circle cx="70" cy="135" r="7" fill={accent} opacity="0.6" />
+        <circle cx="130" cy="135" r="7" fill={accent} opacity="0.6" />
+      </>
+    )
+  }
+  {
+    variant === 'unicorn' && (
+      <>
+        <polygon points="100,15 92,55 108,55" fill={accent} />
+        <polygon points="100,18 95,52 105,52" fill="#FFE9B0" opacity="0.7" />
+        <ellipse cx="75" cy="50" rx="10" ry="22" fill={color} />
+        <ellipse cx="125" cy="50" rx="10" ry="22" fill={color} />
+        <circle cx="100" cy="115" r="62" fill={color} />
+        <path d="M55 90 Q40 95 45 110 Q35 115 45 125 Q35 135 50 138" stroke={accent} stroke-width="6" fill="none" stroke-linecap="round" opacity="0.8" />
+        <circle cx="82" cy="110" r="5" fill="#4A3F55" />
+        <circle cx="118" cy="110" r="5" fill="#4A3F55" />
+        <circle cx="83.5" cy="108.5" r="1.5" fill="#fff" />
+        <circle cx="119.5" cy="108.5" r="1.5" fill="#fff" />
+        <path d="M93 130 Q100 136 107 130" stroke="#4A3F55" stroke-width="2.5" fill="none" stroke-linecap="round" />
+        <circle cx="72" cy="125" r="7" fill="#FFB3C7" opacity="0.6" />
+        <circle cx="128" cy="125" r="7" fill="#FFB3C7" opacity="0.6" />
+      </>
+    )
+  }
+  {
+    variant === 'frog' && (
+      <>
+        <circle cx="60" cy="55" r="20" fill={color} />
+        <circle cx="140" cy="55" r="20" fill={color} />
+        <circle cx="60" cy="55" r="13" fill="#FFFDFB" />
+        <circle cx="140" cy="55" r="13" fill="#FFFDFB" />
+        <circle cx="60" cy="58" r="7" fill="#2C2433" />
+        <circle cx="140" cy="58" r="7" fill="#2C2433" />
+        <circle cx="62" cy="55" r="2" fill="#FFFDFB" />
+        <circle cx="142" cy="55" r="2" fill="#FFFDFB" />
+        <ellipse cx="100" cy="120" rx="65" ry="55" fill={color} />
+        <ellipse cx="100" cy="140" rx="42" ry="22" fill={accent} opacity="0.5" />
+        <path d="M75 130 Q100 145 125 130" stroke="#2C2433" stroke-width="2.5" fill="none" stroke-linecap="round" />
+        <circle cx="78" cy="138" r="3" fill="#2C2433" opacity="0.5" />
+        <circle cx="122" cy="138" r="3" fill="#2C2433" opacity="0.5" />
+        <circle cx="70" cy="130" r="6" fill={accent} opacity="0.6" />
+        <circle cx="130" cy="130" r="6" fill={accent} opacity="0.6" />
+      </>
+    )
+  }
+  {
+    variant === 'sheep' && (
+      <>
+        <circle cx="50" cy="80" r="18" fill={color} />
+        <circle cx="65" cy="55" r="18" fill={color} />
+        <circle cx="95" cy="45" r="20" fill={color} />
+        <circle cx="125" cy="50" r="18" fill={color} />
+        <circle cx="148" cy="75" r="18" fill={color} />
+        <circle cx="40" cy="110" r="18" fill={color} />
+        <circle cx="160" cy="110" r="18" fill={color} />
+        <circle cx="55" cy="135" r="20" fill={color} />
+        <circle cx="100" cy="150" r="22" fill={color} />
+        <circle cx="145" cy="135" r="20" fill={color} />
+        <ellipse cx="100" cy="105" rx="38" ry="34" fill={accent} />
+        <ellipse cx="70" cy="80" rx="10" ry="14" fill={accent} transform="rotate(-20 70 80)" />
+        <ellipse cx="130" cy="80" rx="10" ry="14" fill={accent} transform="rotate(20 130 80)" />
+        <ellipse cx="70" cy="82" rx="4" ry="6" fill={color} transform="rotate(-20 70 82)" />
+        <ellipse cx="130" cy="82" rx="4" ry="6" fill={color} transform="rotate(20 130 82)" />
+        <circle cx="88" cy="100" r="3.5" fill="#2C2433" />
+        <circle cx="112" cy="100" r="3.5" fill="#2C2433" />
+        <circle cx="89" cy="98.5" r="1" fill="#FFFDFB" />
+        <circle cx="113" cy="98.5" r="1" fill="#FFFDFB" />
+        <ellipse cx="100" cy="116" rx="4" ry="2.5" fill="#2C2433" />
+        <path d="M94 124 Q100 128 106 124" stroke="#2C2433" stroke-width="1.8" fill="none" stroke-linecap="round" />
+        <circle cx="78" cy="112" r="4" fill="#FFB3C7" opacity="0.5" />
+        <circle cx="122" cy="112" r="4" fill="#FFB3C7" opacity="0.5" />
+      </>
+    )
+  }
+</svg>
+
+<style>
+  .plush {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 8px 18px rgba(74, 63, 85, 0.12));
+  }
+</style>

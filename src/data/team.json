@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Salomé",
+    "trait": "rêveuse",
+    "bio": "Toujours la tête dans les nuages, mais c'est elle qui invente les histoires de chaque peluche.",
+    "fav": "Bao le Panda",
+    "classe": "6ᵉ B",
+    "style": "long-blonde",
+    "skin": "#FBD7B5",
+    "bg": "#FFF0F4"
+  },
+  {
+    "name": "Madeleine",
+    "trait": "curieuse",
+    "bio": "Teste tous les nouveaux patrons. Si une peluche a un point bizarre et trop mignon, c'est sûrement le sien.",
+    "fav": "Étoile la Licorne",
+    "classe": "6ᵉ A",
+    "style": "bun-red",
+    "skin": "#FBD7B5",
+    "bg": "#FFEEDD"
+  },
+  {
+    "name": "Charlotte",
+    "trait": "perfectionniste",
+    "bio": "Compte ses mailles deux fois. Si une peluche est parfaitement symétrique, c'est sûrement la sienne.",
+    "fav": "Miso le Chat",
+    "classe": "6ᵉ A",
+    "style": "bob-black",
+    "skin": "#E8B58A",
+    "bg": "#FAF3E7"
+  },
+  {
+    "name": "Violette",
+    "trait": "rigolote",
+    "bio": "Reine des blagues pendant les ateliers. Fait rire tout le monde, même quand elle rate une maille.",
+    "fav": "Clémentine le Renard",
+    "classe": "5ᵉ A",
+    "style": "pigtails-brown",
+    "skin": "#F5C9A0",
+    "bg": "#F2EDFC"
+  }
+]

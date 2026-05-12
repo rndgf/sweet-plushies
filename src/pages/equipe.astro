@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Button from '../components/Button.astro';
+import MemberCard from '../components/MemberCard.astro';
+import { team } from '../data';
+---
+
+<Layout
+  title="Qui sommes-nous ? — Sweet Plushies"
+  description="Rencontre les quatre créatrices Sweet Plushies : Salomé, Madeleine, Charlotte et Violette."
+>
+  <main
+    class="relative max-w-[1100px] mx-auto px-5 sm:px-8 lg:px-16 py-8 lg:py-12"
+  >
+    <div
+      class="absolute rounded-full blur-[70px] opacity-50 pointer-events-none z-0 bg-pink w-[240px] h-[240px] -top-8 -right-[50px]"
+    >
+    </div>
+    <div
+      class="absolute rounded-full blur-[70px] opacity-50 pointer-events-none z-0 bg-mint w-[220px] h-[220px] bottom-[10%] -left-[60px]"
+    >
+    </div>
+
+    <header class="relative z-10 text-center max-w-[600px] mx-auto mb-8">
+      <Eyebrow>Qui sommes-nous ?</Eyebrow>
+      <h1 class="display-h1 text-[clamp(2rem,4.5vw,3rem)] mb-3">
+        La <span class="hl">petite bande</span> au crochet.
+      </h1>
+      <p class="text-plum-soft text-[0.98rem] max-w-[50ch] mx-auto">
+        Quatre filles, quatre caractères, quatre paires de mains qui n'arrêtent
+        jamais. Chacune a sa peluche préférée et son super-pouvoir.
+      </p>
+    </header>
+
+    <section
+      class="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-8"
+    >
+      {team.map((g) => <MemberCard {...g} />)}
+    </section>
+
+    <section class="relative z-10 text-center">
+      <Button href="/" variant="ghost">← Retour à l'accueil</Button>
+    </section>
+  </main>
+</Layout>

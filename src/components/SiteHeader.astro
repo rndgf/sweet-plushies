@@ -1,0 +1,111 @@
+---
+import Bee from './Bee.astro';
+
+const path = Astro.url.pathname;
+const isHome = path === '/' || path === '/index.html';
+const home = (anchor: string) => (isHome ? `#${anchor}` : `/#${anchor}`);
+
+const links = [
+  { href: home('about'), label: 'Notre histoire', isActive: false },
+  {
+    href: '/equipe',
+    label: 'Qui sommes-nous ?',
+    isActive: path.startsWith('/equipe'),
+  },
+  { href: home('gallery'), label: 'Les peluches', isActive: false },
+  { href: home('order'), label: 'Comment acheter ?', isActive: false },
+];
+---
+
+<header
+  class="sticky top-0 z-20 bg-peach/85 backdrop-blur-md"
+>
+  <div
+    class="flex items-center justify-between px-4 sm:px-8 lg:px-12 py-3 lg:py-4"
+  >
+    <a
+      href="/"
+      class="no-underline text-plum inline-flex items-center gap-2.5"
+    >
+      <Bee class="w-9 h-9 lg:w-11 lg:h-11 shrink-0" />
+      <span class="flex flex-col leading-none">
+        <span class="font-display font-black text-[1.1rem] lg:text-[1.3rem]"
+          >Sweet Plushies</span
+        >
+        <span
+          class="hidden sm:block font-body italic text-plum-soft text-[0.65rem] lg:text-[0.72rem] mt-1"
+        >
+          C'est doux, c'est nous, mais c'est pour vous.
+        </span>
+      </span>
+    </a>
+
+    {/* Desktop nav */}
+    <nav class="hidden md:flex gap-4 lg:gap-8">
+      {
+        links.map((l) => (
+          <a
+            href={l.href}
+            class:list={[
+              'no-underline text-plum-soft font-semibold text-[0.88rem] lg:text-[0.95rem] transition-colors hover:text-plum',
+              l.isActive && 'text-plum',
+            ]}
+          >
+            {l.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    {/* Mobile toggle */}
+    <details class="md:hidden relative group">
+      <summary
+        class="list-none cursor-pointer p-2 -mr-2 text-plum [&::-webkit-details-marker]:hidden"
+        aria-label="Menu"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.2"
+          stroke-linecap="round"
+          class="w-6 h-6 group-open:hidden"
+        >
+          <line x1="3" y1="7" x2="21" y2="7"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="17" x2="21" y2="17"></line>
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.2"
+          stroke-linecap="round"
+          class="w-6 h-6 hidden group-open:block"
+        >
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+          <line x1="6" y1="18" x2="18" y2="6"></line>
+        </svg>
+      </summary>
+      <nav
+        class="absolute right-0 top-[calc(100%+8px)] bg-peach rounded-2xl shadow-[0_14px_30px_rgba(74,63,85,0.15)] border border-plum/10 p-2 flex flex-col min-w-[200px]"
+      >
+        {
+          links.map((l) => (
+            <a
+              href={l.href}
+              class:list={[
+                'no-underline text-plum-soft font-semibold text-[0.92rem] px-4 py-2.5 rounded-xl transition-colors hover:bg-pink/30 hover:text-plum',
+                l.isActive && 'text-plum bg-pink/20',
+              ]}
+            >
+              {l.label}
+            </a>
+          ))
+        }
+      </nav>
+    </details>
+  </div>
+</header>

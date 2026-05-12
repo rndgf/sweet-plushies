@@ -1,0 +1,42 @@
+---
+import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import BackgroundFX from '../components/BackgroundFX.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Sweet Plushies — Peluches au crochet',
+  description = "Peluches au crochet, faites main par une équipe de créatrices collégiennes. Vendues à l'école, crochetées avec amour.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cause:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <BackgroundFX />
+    <div class="relative z-10">
+      <SiteHeader />
+      <slot />
+      <SiteFooter />
+    </div>
+  </body>
+</html>

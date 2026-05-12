@@ -1,0 +1,19 @@
+---
+interface Props {
+  num: number;
+  title: string;
+}
+const { num, title } = Astro.props;
+---
+
+<li class="flex gap-4 items-start bg-ivory rounded-[18px] px-5 py-4">
+  <span
+    class="shrink-0 w-9 h-9 rounded-full bg-pink text-plum grid place-items-center font-display font-black text-[1.1rem]"
+  >
+    {num}
+  </span>
+  <div>
+    <h3 class="text-[1.05rem] font-display font-bold mb-0.5">{title}</h3>
+    <p class="text-plum-soft text-[0.9rem]"><slot /></p>
+  </div>
+</li>
